@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sem Parar Pro</title>
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#fff,#f3d9e0);
+}
+
+/* HEADER */
+header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:10;
+}
+
+.menu {font-size:24px;cursor:pointer;}
+.logo {font-weight:bold;color:#ff0055;}
+.btn {
+  background:#ff0055;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:25px;
+}
+
+/* MENU LATERAL */
+.sidebar {
+  position:fixed;
+  left:-250px;
+  top:0;
+  width:250px;
+  height:100%;
+  background:#fff;
+  box-shadow:2px 0 10px rgba(0,0,0,0.2);
+  padding:20px;
+  transition:0.3s;
+  z-index:20;
+}
+
+.sidebar.active {
+  left:0;
+}
+
+.sidebar a {
+  display:block;
+  margin:15px 0;
+  text-decoration:none;
+  color:#333;
+}
+
+/* OVERLAY */
+.overlay {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.3);
+  display:none;
+}
+
+.overlay.active {
+  display:block;
+}
+
+/* HERO */
+.hero {
+  padding:20px;
+}
+
+.hero h1 {
+  color:#ff0055;
+  font-size:26px;
+}
+
+.hero h2 {
+  font-size:26px;
+}
+
+.hero p {
+  color:#555;
+  margin-top:10px;
+}
+
+/* CARDS */
+.cards {
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  padding:20px;
+}
+
+.card {
+  min-width:240px;
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  position:relative;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.2s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+.icon {
+  font-size:28px;
+  color:#ff0055;
+}
+
+.arrow {
+  position:absolute;
+  right:15px;
+  top:15px;
+  color:#ff0055;
+}
+
+.card h3 {
+  margin-top:10px;
+}
+
+.card p {
+  color:#666;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU LATERAL -->
+<div class="sidebar" id="menu">
+  <h3>Menu</h3>
+  <a href="#">Início</a>
+  <a href="#">Serviços</a>
+  <a href="#">Contato</a>
+</div>
+
+<div class="overlay" id="overlay" onclick="fecharMenu()"></div>
+
+<header>
+  <div class="menu" onclick="abrirMenu()">☰</div>
+  <div class="logo">SEM PARAR</div>
+  <div class="btn">Compre Online</div>
+</header>
+
+<section class="hero">
+  <h1>SOLUÇÕES PARA SUA EMPRESA</h1>
+  <h2>NÃO PARAR</h2>
+  <p>
+    Descomplicamos os processos de gestão de pagamentos e despesas
+    de forma ágil e inovadora.
+  </p>
+</section>
+
+<section class="cards">
+
+  <div class="card">
+    <div class="icon">🚧</div>
+    <div class="arrow">➜</div>
+    <h3>VALE-PEDÁGIO</h3>
+    <p>Mais segurança e controle.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">⛽</div>
+    <div class="arrow">➜</div>
+    <h3>MULTIABASTECIMENTO</h3>
+    <p>Controle total de combustível.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🚌</div>
+    <div class="arrow">➜</div>
+    <h3>VALE-TRANSPORTE</h3>
+    <p>Para sua empresa.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🍴</div>
+    <div class="arrow">➜</div>
+    <h3>VR + VA</h3>
+    <p>Alimentação em um cartão.</p>
+  </div>
+
+</section>
+
+<script>
+function abrirMenu(){
+  document.getElementById("menu").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+}
+
+function fecharMenu(){
+  document.getElementById("menu").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
